@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Cuentagotas</name>
+    <name>prueba Mobile</name>
     <description>
-        Primer prueba de acceso a el dato del archivo de la estacion.
+        Primeras pruebas de acceso a mobiles.
     </description>
-    <author email="cuentagotas@gmail.com" href="">
-        Cuentagotas Team
+    <author email="pruebasmobile@gmail.com" href="">
+        pruebas Mobile Team
     </author>
     <preference name="permissions" value="none" />
     <preference name="phonegap-version" value="3.5.0" />
