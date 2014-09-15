@@ -20,7 +20,10 @@
             <script type="text/javascript"> 
                 app.initialize(); 
                 function probarGps() { 
-                    navigator.geolocation.getCurrentPosition(probarGpsonSuccess,probarGpsonError, {enableHighAccuracy:true, timeout: 5000});
+                    var options = { timeout: 31000, enableHighAccuracy: true, maximumAge: 90000 };
+
+
+                    navigator.geolocation.getCurrentPosition(probarGpsonSuccess,probarGpsonError, options);
 
                         }
                 function probarGpsonSuccess(position) { 
