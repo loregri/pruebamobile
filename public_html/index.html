@@ -20,7 +20,7 @@
 			<h1>GPS Cordova</h1>
 		</div>
 		<div data-role="content" data-theme="a">
-                    <a href="#" data-role="button" data-inline="true" data-theme="e" >Este boton es de otro color</a>
+                  
                     <input id="btnGps" type="button" data-role="button" value="Probar Gps" onClick="probarGps()"/> 
                      <p id="geolocation">Buscando Geolocalización...</p>
 <!--
@@ -55,13 +55,13 @@
                 function probarGpsonSuccess(position) { 
                          var element = document.getElementById('geolocation');
                          element.innerHTML = 'Latitud: '           + position.coords.latitude              + '<br />' +
-                            'Longitud: '          + position.coords.longitude             + '<br />' +
-                            'Altitud: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                            'Heading: '            + position.coords.heading               + '<br />' +
-                            'Velocidad '              + position.coords.speed                 + '<br />' +
-                            'Fecha y Hora '          + position.coords.timestamp                    + '<br />';
+                            'Longitud: '          + position.coords.longitude            + '<br />' +
+                            'Altitud: '           + position.coords.altitude             + '<br />' +
+                            'Exactitud '           + position.coords.accuracy            + '<br />' +
+                            'Exactitud de Altitud: '  + position.coords.altitudeAccuracy    + '<br />' +
+                            'Heading: '            + position.coords.heading             + '<br />' +
+                            'Velocidad '              + position.coords.speed            + '<br />' +
+                            'Fecha y Hora '          + + new Date(position.timestamp)    + '<br />';
                       }
 
                     
