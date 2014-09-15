@@ -20,7 +20,8 @@
             <script type="text/javascript"> 
                 app.initialize(); 
                 function probarGps() { 
-                    navigator.geolocation.getCurrentPosition(probarGpsonSuccess,probarGpsonError);
+                    navigator.geolocation.getCurrentPosition(probarGpsonSuccess,probarGpsonError, {enableHighAccuracy:true, timeout: 5000});
+
                         }
                 function probarGpsonSuccess(position) { 
                     alert('Latitud: ' + position.coords.latitude+ '\n' +
@@ -29,7 +30,7 @@
                           'Timestamp: '+ new Date(position.timestamp) + '\n');
                 }
                 function probarGpsonError(error) { 
-                    alert('code: ' +error.code+ '\n' + 'message: ' +error.message+ '\n'); 
+                    alert('Codigo ' +error.code+ '\n' + 'Mensaje ' +error.message+ '\n'); 
                     } 
           </script> 
 </body> 
