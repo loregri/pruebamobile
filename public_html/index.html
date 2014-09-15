@@ -22,7 +22,8 @@
 			<h1>GPS Cordova</h1>
 		</div>
 		<div data-role="content" data-theme="a">
-                    <input name="btnGps" data-theme="e" type="button" id="btngps" value="Probar Gps" onClick="probarGps()"/> 
+                    <input name="btnGps" type="button" id="btngps" value="Probar Gps" onClick="probarGps()"/> 
+                     <p id="geolocation">Buscando Geolocalización...</p>
 <!--
 				<p>vista Previa de A <a href="#" class="ui-link">ver link</a>.</p>
 			<label for="slider1">Input slider</label>
@@ -53,11 +54,18 @@
 
                         }
                 function probarGpsonSuccess(position) { 
-                    alert('Latitud: ' + position.coords.latitude+ '\n' +
-                          'Longitud: '+ position.coords.longitude+ '\n' +
-                          'Altitud: ' + position.coords.altitude+ '\n' + 
-                          'Fecha y Hora '+ new Date(position.timestamp) + '\n');
-                }
+                         var element = document.getElementById('geolocation');
+                         element.innerHTML = 'Latitud: '           + position.coords.latitude              + '<br />' +
+                            'Longitud: '          + position.coords.longitude             + '<br />' +
+                            'Altitud: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Velocidad '              + position.coords.speed                 + '<br />' +
+                            'Fecha y Hora '          + position.timestamp                    + '<br />';
+                      }
+
+                    
                 function probarGpsonError(error) { 
                     alert('Codigo ' +error.code+ '\n' + 'Mensaje ' +error.message+ '\n'); 
                     } 
