@@ -1,0 +1,37 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Mobile: Primeros pasos</title>
+	<link rel="stylesheet" href="themes/pruebamobile.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.3.min.css" />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.3.js"></script>
+</head>
+<body>
+	<div data-role="page" data-theme="a">
+		<div data-role="header" data-position="inline">
+			<h1>Pruebas</h1>
+		</div>
+		<div data-role="content" data-theme="a">
+			<p>Este es el tema que elegi para trabajar</p>
+			<pre>
+<strong>pprueba1</strong>
+<strong>prueba2 </strong>
+
+			</pre>
+			<p>vista Previa de A <a href="#" class="ui-link">ver link</a>.</p>
+			<label for="slider1">Input slider</label>
+			<input type="range" name="slider1" id="slider1" value="50" min="0" max="100" data-theme="a" />
+			<fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
+			<legend>Configuración de cache</legend>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="on" checked="checked" />
+			<label for="radio-choice-a1">ON</label>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="off"  />
+			<label for="radio-choice-b1">OFF</label>
+			</fieldset>
+		</div>
+	</div>
+</body>
+</html>

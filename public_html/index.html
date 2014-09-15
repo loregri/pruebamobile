@@ -1,37 +1,38 @@
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>jQuery Mobile: Primeros pasos</title>
-	<link rel="stylesheet" href="themes/pruebamobile.min.css" />
-	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.3.min.css" />
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/jquery.mobile-1.4.3.js"></script>
-</head>
-<body>
-	<div data-role="page" data-theme="a">
-		<div data-role="header" data-position="inline">
-			<h1>Pruebas</h1>
-		</div>
-		<div data-role="content" data-theme="a">
-			<p>Este es el tema que elegi para trabajar</p>
-			<pre>
-<strong>pprueba1</strong>
-<strong>prueba2 </strong>
+ 
 
-			</pre>
-			<p>vista Previa de A <a href="#" class="ui-link">ver link</a>.</p>
-			<label for="slider1">Input slider</label>
-			<input type="range" name="slider1" id="slider1" value="50" min="0" max="100" data-theme="a" />
-			<fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
-			<legend>Configuración de cache</legend>
-			<input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="on" checked="checked" />
-			<label for="radio-choice-a1">ON</label>
-			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="off"  />
-			<label for="radio-choice-b1">OFF</label>
-			</fieldset>
-		</div>
-	</div>
-</body>
+<!DOCTYPE html> 
+<html>
+    <head> 
+        <meta charset="utf-8" /> 
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1,maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> 
+        <link rel="stylesheet" type="text/css" href="css/index.css" /> 
+        <title>Hello World</title>
+        </head > 
+        <body> 
+            <div class="app"> 
+                <h1>Gps Cordova</h1> 
+                <div id="deviceready" class="blink"> 
+                    <p class="event listening">Device is Ready</p> 
+                    <input name="btnGps" type="button" id="btngps" value="Probar Gps" onClick="probarGps()"> 
+                </div> 
+            </div> 
+            <script type="text/javascript" src="cordova.js"> </script> 
+            <script type="text/javascript" src="js/index.js"></script> 
+            <script type="text/javascript"> 
+                app.initialize(); 
+                function probarGps() { 
+                    navigator.geolocation.getCurrentPosition(probarGpsonSuccess,probarGpsonError);
+                        }
+                function probarGpsonSuccess(position) { 
+                    alert('Latitud: ' + position.coords.latitude+ '\n' +
+                          'Longitud: '+ position.coords.longitude+ '\n' +
+                          'Altitud: ' + position.coords.altitude+ '\n' + 
+                          'Timestamp: '+ new Date(position.timestamp) + '\n');
+                }
+                function probarGpsonError(error) { 
+                    alert('code: ' +error.code+ '\n' + 'message: ' +error.message+ '\n'); 
+                    } 
+          </script> 
+</body> 
 </html>
