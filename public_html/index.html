@@ -13,11 +13,26 @@
         <script src="js/semaforo.js" type="text/javascript"></script>
         <script src="js/geo.js" type="text/javascript"></script>
         <script type="text/javascript">
+                var lastReading = 0;
+
+    // The watch id references the current `watchHeading`
+    var watchID = null;
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+ 
+            
+                 
                 document.addEventListener("deviceready", onDeviceReady, false);
                 function onDeviceReady() {
                    // Register the event listener
                    document.addEventListener("offline", isOffline(), false);
                    document.addEventListener("online", isOnline(), false);
+                   document.addEventListener("rotacion", startWath(), false);
+
                    //navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS);
                     //buscardatosHistoricos();
                   }
@@ -37,7 +52,28 @@
                function resultado(){
                    document.getElementById('resul').innerHTML = document.getElementById('esta').selectedIndex;
                }    
-        </script>
+               
+                   // Start watching the compass
+    //
+    function startWatch() {
+
+        // Update compass every 3 seconds
+        var options = { frequency: 300 };
+
+    	watchID = navigator.compass.watchHeading(onSuccessRotacion, onErrorRotacion, options);
+    }
+
+    // Stop watching the compass
+    //
+    function stopWatch() {
+        if (watchID) {
+            navigator.compass.clearWatch(watchID);
+            watchID = null;
+        }
+    }
+
+   
+        </script>       
         <script>
               function seleccion(){
                 var e = document.getElementById("select-choice-a");
@@ -51,6 +87,10 @@
         <title>CuentaGOTAS</title>
     </head>
     <body>
+           <div id="heading">Waiting for heading...</div>
+    <button onclick="startWatch();">Start Watching</button>
+    <button onclick="stopWatch();">Stop Watching</button>
+
         <div id="app">
             <div id="home-page" data-role="page" >
                 <div data-role="header">
