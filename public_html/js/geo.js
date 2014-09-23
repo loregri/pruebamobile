@@ -149,10 +149,10 @@ function ordenGPS(position){
  // onSuccess: Get the current heading
     //
    var onSuccessRotacion=function(heading) {
-        var element = document.getElementById('heading');
+        var element = document.getElementById('encabezado');
         alert('en rotacion exitosa');
         element.innerHTML = 'Heading: ' + heading.magneticHeading;
-        rotateCompass(heading.magneticHeading);
+        //rotateCompass(heading.magneticHeading);
   }
 
     // onError: Failed to get the heading
@@ -167,6 +167,7 @@ function ordenGPS(position){
         //console.log("lastReading: " + lastReading);
         var numberToTravelTo = heading;
         var delta = Math.abs(lastReading - heading);
+        alert('en rotatecomass');
        // console.log("numberToTravelTo: " + numberToTravelTo);
         //console.log("delta: " + delta);
 

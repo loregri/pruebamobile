@@ -59,8 +59,8 @@
 
         // Update compass every 3 seconds
         var options = { frequency: 300 };
-
-    	watchID = navigator.compass.watchHeading(onSuccessRotacion, onErrorRotacion, options);
+        alert('en startwatch');
+    	navigator.compass.getCurrentHeading(onSuccessRotacion, onErrorRotacion, options);
     }
 
     // Stop watching the compass
@@ -97,7 +97,7 @@
 
                 <div data-role="content" >
                     
-                     <div id="heading">Waiting for heading...</div>
+                     <div id="encabezado">Waiting for heading...</div>
     <button onclick="startWatch();">Start Watching</button>
     <button onclick="stopWatch();">Stop Watching</button>
                 <table>
