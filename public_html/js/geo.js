@@ -145,3 +145,39 @@ function ordenGPS(position){
                     myselect.selectmenu('refresh');
     }
     
+ 
+ // onSuccess: Get the current heading
+    //
+    function onSuccessRotacion(heading) {
+        var element = document.getElementById('heading');
+        element.innerHTML = 'Heading: ' + heading.magneticHeading;
+        rotateCompass(heading.magneticHeading);
+    }
+
+    // onError: Failed to get the heading
+    //
+    function onErrorRotacion(compassError) {
+        alert('Compass error: ' + compassError.code);
+    }
+
+    function rotateCompass(heading){
+        //console.log("lastReading: " + lastReading);
+        var numberToTravelTo = heading;
+        var delta = Math.abs(lastReading - heading);
+       // console.log("numberToTravelTo: " + numberToTravelTo);
+        //console.log("delta: " + delta);
+
+        if (delta > 180){
+            numberToTravelTo = numberToTravelTo - 360;
+             // console.log("new numberToTravelTo: " + numberToTravelTo);
+
+        }
+
+        var compass =  document.querySelector('#compass');
+        compass.style.webkitTransform = "rotate(" + flipSign(numberToTravelTo) + "deg)";
+        lastReading = numberToTravelTo;
+    }
+
+    function flipSign(number){
+        return number * -1;
+    }
