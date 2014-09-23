@@ -148,16 +148,17 @@ function ordenGPS(position){
  
  // onSuccess: Get the current heading
     //
-    function onSuccessRotacion(heading) {
+   var onSuccessRotacion=function(heading) {
         var element = document.getElementById('heading');
         alert('en rotacion exitosa');
         element.innerHTML = 'Heading: ' + heading.magneticHeading;
         rotateCompass(heading.magneticHeading);
-    }
+  }
 
     // onError: Failed to get the heading
     //
     function onErrorRotacion(compassError) {
+          alert('error de rotacion');
          document.getElementById('rotar').className = 'estado no';
         alert('Compass error: ' + compassError.code);
     }
