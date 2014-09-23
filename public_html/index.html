@@ -45,7 +45,7 @@
                        document.getElementById('net').className = 'estado ok';
                        var options = {maximumAge: 3000, timeout: 10000, enableHighAccuracy:true};
                        navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS, options);
-                        navigator.compass.watchHeading(onHeadingUpdate,onCompassFail,{frequency:100});
+            
                        
                       // buscardatosHistoricos();
                    }
@@ -55,28 +55,14 @@
                
                    // Start watching the compass
     //
-    function onHeadingUpdate(heading)
-          {
-              alert('en onheadingupdate');
-          compassRose.style.msTransform = "rotate(-" + heading.trueHeading + "deg)";
-          trueHeadingTxt.innerText = "trueHeading : " + heading.trueHeading;
-          magHeadingTxt.innerText = "magneticHeading : " + heading.magneticHeading;
-          accuracyTxt.innerText = "headingAccuracy : " + heading.headingAccuracy;
-          timestampTxt.innerText = "timestamp : " + heading.timestamp;
-          }
-function onCompassFail(err)
-          {
-          var msg = err == CompassError.COMPASS_NOT_SUPPORTED ? "Compass not supported" : "Internal Error";
-          errMsg.innerText = "Compass Error : " + err + " - " + msg;
-alert('en onCompassFail');
-    }    
+ 
           function startWatch() {
 
         // Update compass every 3 seconds
        //var options = { frequency: 300 };
  
         //navigator.compass.getCurrentHeading(onSuccessRotacion, onErrorRotacion, options);
-    
+    document.getElementById('rotar').className = 'estado no';
        alert('en startwatch');
        
     navigator.compass.watchHeading(onHeadingUpdate,onCompassFail,{frequency:100});

@@ -188,3 +188,19 @@ function ordenGPS(position){
     function flipSign(number){
         return number * -1;
     }
+    
+        function onHeadingUpdate(heading)
+          {
+              alert('en onheadingupdate');
+          compassRose.style.msTransform = "rotate(-" + heading.trueHeading + "deg)";
+          trueHeadingTxt.innerText = "trueHeading : " + heading.trueHeading;
+          magHeadingTxt.innerText = "magneticHeading : " + heading.magneticHeading;
+          accuracyTxt.innerText = "headingAccuracy : " + heading.headingAccuracy;
+          timestampTxt.innerText = "timestamp : " + heading.timestamp;
+          }
+function onCompassFail(err)
+          {
+          var msg = err == CompassError.COMPASS_NOT_SUPPORTED ? "Compass not supported" : "Internal Error";
+          errMsg.innerText = "Compass Error : " + err + " - " + msg;
+alert('en onCompassFail');
+    }   
