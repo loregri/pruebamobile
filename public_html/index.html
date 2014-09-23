@@ -31,7 +31,7 @@
                    // Register the event listener
                    document.addEventListener("offline", isOffline(), false);
                    document.addEventListener("online", isOnline(), false);
-                   document.addEventListener("rotacion", startWath(), false);
+                   document.addEventListener("rotacion", startWatch(), false);
 
                    //navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS);
                     //buscardatosHistoricos();
@@ -59,7 +59,7 @@
 
         // Update compass every 3 seconds
         var options = { frequency: 300 };
-
+alert('startwath');
     	watchID = navigator.compass.watchHeading(onSuccessRotacion, onErrorRotacion, options);
     }
 
