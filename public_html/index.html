@@ -58,9 +58,11 @@
     function startWatch() {
 
         // Update compass every 3 seconds
-        var options = { frequency: 300 };
-        alert('en startwatch');
-    	navigator.compass.getCurrentHeading(onSuccessRotacion, onErrorRotacion, options);
+       //var options = { frequency: 300 };
+ 
+        //navigator.compass.getCurrentHeading(onSuccessRotacion, onErrorRotacion, options);
+        navigator.compass.getCurrentHeading(onSuccessRotacion, onErrorRotacion);
+       alert('en startwatch');
     }
 
     // Stop watching the compass

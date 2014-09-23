@@ -149,10 +149,13 @@ function ordenGPS(position){
  // onSuccess: Get the current heading
     //
    var onSuccessRotacion=function(heading) {
+       
+      
         var element = document.getElementById('encabezado');
+        document.getElementById('rotar').className = 'estado ok';
         alert('en rotacion exitosa');
-        element.innerHTML = 'Heading: ' + heading.magneticHeading;
-        //rotateCompass(heading.magneticHeading);
+      element.innerHTML = 'Heading: ' + heading.magneticHeading;
+        rotateCompass(heading.magneticHeading);
   }
 
     // onError: Failed to get the heading
