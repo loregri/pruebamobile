@@ -150,6 +150,7 @@ function ordenGPS(position){
     //
     function onSuccessRotacion(heading) {
         var element = document.getElementById('heading');
+        alert('en rotacion exitosa');
         element.innerHTML = 'Heading: ' + heading.magneticHeading;
         rotateCompass(heading.magneticHeading);
     }
@@ -157,6 +158,7 @@ function ordenGPS(position){
     // onError: Failed to get the heading
     //
     function onErrorRotacion(compassError) {
+         document.getElementById('rotar').className = 'estado no';
         alert('Compass error: ' + compassError.code);
     }
 
