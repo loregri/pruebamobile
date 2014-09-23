@@ -21,7 +21,27 @@
     //
 
     // Cordova is ready
- 
+       
+        var lectura
+            
+        function mostrarOrientacion(){
+                
+            lectura = navigator.compass.watchHeading(lecturaExitosa, error, { frequency: 3000 } )
+                
+        }
+        function lecturaExitosa(orientacion) {
+            document.getElementById("miorientacion").innerHTML = " Orientacion: " + orientacion.magneticHeading + " Grados"
+        }
+        
+        function error(){
+            alert("No es posible leer la brujula")
+        }
+        
+        function detenerLectura(){
+            
+            navigator.compass.clearWatch(lectura);
+            lectura = null
+        }
             
                  
                 document.addEventListener("deviceready", onDeviceReady, false);
@@ -29,7 +49,7 @@
                    // Register the event listener
                    document.addEventListener("offline", isOffline(), false);
                    document.addEventListener("online", isOnline(), false);
-                   document.addEventListener("rotacion", startWatch(), false);
+ 
 
                    //navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS);
                     //buscardatosHistoricos();
@@ -56,26 +76,7 @@
                    // Start watching the compass
     //
  
-          function startWatch() {
-
-        // Update compass every 3 seconds
-       //var options = { frequency: 300 };
- 
-        //navigator.compass.getCurrentHeading(onSuccessRotacion, onErrorRotacion, options);
-    document.getElementById('rotar').className = 'estado no';
-       alert('en startwatch');
-       
-    navigator.compass.watchHeading(onHeadingUpdate,onCompassFail,{frequency:100});
-          }
-    // Stop watching the compass
-    //
-    function stopWatch() {
-        if (watchID) {
-            navigator.compass.clearWatch(watchID);
-            watchID = null;
-        }
-    }
-
+   
    
         </script>       
         <script>
@@ -198,10 +199,10 @@
                             </select>
                             </div>
                     </div>                      <!--        <input id="submitid" type="submit" value="Calculadora de Riego" data-theme="f"/> -->
-                        <div class="info" id="trueHeadingTxt" style="color:Red;">trueHeading : </div>
-      <div class="info" id="magHeadingTxt" style="color:Blue;">magneticHeading :</div>
-      <div class="info" id="accuracyTxt" style="color:Yellow;">headingAccuracy :</div>
-      <div class="info" id="timestampTxt" style="color:Green;">timestamp :</div>
+                    <div id="miorientacion">
+                        <button onclick="mostrarOrientacion();">Mostrar Orientacion</button>
+                         <button onclick="detenerLectura();">Detener Rastreo</button>
+                    </div>
                   </form>
                     <div id="resul"></div>
                     <div id="menu">
