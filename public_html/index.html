@@ -29,7 +29,7 @@
     var watchID = null;  
         function mostrarOrientacion(){
                 
-            lectura = navigator.compass.watchHeading(lecturaExitosa, error, { frequency: 3000 } )
+            lectura = navigator.compass.watchHeading(lecturaExitosa, error, { frequency: 300 } );
                 
         }
         function lecturaExitosa(heading) {
@@ -40,13 +40,13 @@
         }
         
         function error(){
-            alert("No es posible leer la brujula")
+            alert("No es posible leer la brujula");
         }
         
         function detenerLectura(){
             
             navigator.compass.clearWatch(lectura);
-            lectura = null
+            lectura = null;
         }
         
     function rotateCompass(heading){
