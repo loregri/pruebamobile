@@ -22,17 +22,21 @@
 
     // Cordova is ready
        
-        var lectura
-            
+        var lectura;
+              var lastReading = 0;
+
+    // The watch id references the current `watchHeading`
+    var watchID = null;  
         function mostrarOrientacion(){
                 
             lectura = navigator.compass.watchHeading(lecturaExitosa, error, { frequency: 3000 } )
                 
         }
-        function lecturaExitosa(orientacion) {
-            alert('lectura exitosa');
-           alert(" Orientacion: " + orientacion.magneticHeading + " Grados");
+        function lecturaExitosa(heading) {
+           // alert('lectura exitosa');
+           //alert(" Orientacion: " + orientacion.magneticHeading + " Grados");
             //document.getElementById("miorientacion").innerHTML = " Orientacion: " + orientacion.magneticHeading + " Grados"
+            rotateCompass(heading.magneticHeading);
         }
         
         function error(){
@@ -44,7 +48,28 @@
             navigator.compass.clearWatch(lectura);
             lectura = null
         }
-            
+        
+    function rotateCompass(heading){
+        //console.log("lastReading: " + lastReading);
+        var numberToTravelTo = heading;
+        var delta = Math.abs(lastReading - heading);
+       // console.log("numberToTravelTo: " + numberToTravelTo);
+        //console.log("delta: " + delta);
+
+        if (delta > 180){
+            numberToTravelTo = numberToTravelTo - 360;
+             // console.log("new numberToTravelTo: " + numberToTravelTo);
+
+        }
+
+        var compass =  document.querySelector('#compass');
+        compass.style.webkitTransform = "rotate(" + flipSign(numberToTravelTo) + "deg)";
+        lastReading = numberToTravelTo;
+    }
+
+    function flipSign(number){
+        return number * -1;
+    }    
                  
                 document.addEventListener("deviceready", onDeviceReady, false);
                 function onDeviceReady() {
@@ -136,6 +161,16 @@
                     </div>
                   -->
                   <div id="miorientacion">   </div>
+                     <ul id="compass">
+        <li id="N">N</li>
+        <li id="NE">NE</li>
+        <li id="E">E</li>
+        <li id="SE">SE</li>
+        <li id="S">S</li>
+        <li id="SW">SW</li>
+        <li id="W">W</li>
+        <li id="NW">NW</li>
+    </ul>    
                         <button onclick="mostrarOrientacion();">Mostrar Orientacion</button>
                          <button onclick="detenerLectura();">Detener Rastreo</button>
                   <form id="formulario" data-transition="pop">
