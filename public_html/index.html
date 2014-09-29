@@ -21,10 +21,10 @@
                        document.getElementById('net').className = 'estado no';
                    }
                function isOnline() {
-                   //    alert ('Su dispositivo móvil esta en línea');
+                alert ('Su dispositivo móvil esta en línea');
                        document.getElementById('net').className = 'estado ok';
                        var options = {maximumAge: 3000, timeout: 10000, enableHighAccuracy:true};
-                       navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS, options);
+                       //navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS, options);
                        navigator.accelerometer.getCurrentAcceleration(onSuccessAcelerometro, onErrorAcelerometro);
                       // buscardatosHistoricos();
                    }
