@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.pruebamobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>PruebaMobile</name>
+<widget id="com.phonegap.CuentaGOTAS" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Cuentagotas</name>
     <description>
         Primer prueba de acceso a el dato del archivo de la estacion.
     </description>
-    <author email="pruebamobile@gmail.com" href="">
+    <author email="cuentagotas@gmail.com" href="">
         Cuentagotas Team
     </author>
     <preference name="permissions" value="none" />
     <preference name="phonegap-version" value="3.5.0" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
-    <preference name="fullscreen" value="false" />
+    <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
     <preference name="prerendered-icon" value="true" />
     <preference name="stay-in-webview" value="false" />
@@ -42,10 +42,10 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     <icon src="icon.png" />
-    <icon gap:platform="android" gap:qualifier="ldpi" src="images/cuentagotas_32.png" />
-    <icon gap:platform="android" gap:qualifier="mdpi" src="images/cuentagotas_48.png" />
-    <icon gap:platform="android" gap:qualifier="hdpi" src="images/cuentagotas_96.png" />
-    <icon gap:platform="android" gap:qualifier="xhdpi" src="images/cuentagotas_96.png" />
+    <icon gap:platform="android" gap:qualifier="ldpi" src="res/icon/android/cuentagotas_32.png" />
+    <icon gap:platform="android" gap:qualifier="mdpi" src="res/icon/android/cuentagotas_48.png" />
+    <icon gap:platform="android" gap:qualifier="hdpi" src="res/icon/android/cuentagotas_96.png" />
+    <icon gap:platform="android" gap:qualifier="xhdpi" src="res/icon/android/cuentagotas_96.png" />
     <icon gap:platform="blackberry" src="res/icon/blackberry/icon-80.png" />
     <icon gap:platform="blackberry" gap:state="hover" src="res/icon/blackberry/icon-80.png" />
     <icon gap:platform="ios" height="57" src="res/icon/ios/icon-57.png" width="57" />
