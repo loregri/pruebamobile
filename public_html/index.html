@@ -13,76 +13,9 @@
         <script src="js/semaforo.js" type="text/javascript"></script>
         <script src="js/geo.js" type="text/javascript"></script>
         <script type="text/javascript">
-            
+                document.addEventListener("offline", isOffline(), false);
+                document.addEventListener("online", isOnline(), false);           
 
-    // The watch id references the current `watchHeading`
- 
-    // Wait for Cordova to load
-    //
-
-    // Cordova is ready
-       
-        var lectura;
-              var lastReading = 0;
-
-    // The watch id references the current `watchHeading`
-    var watchID = null;  
-        function mostrarOrientacion(){
-                
-            lectura = navigator.compass.watchHeading(lecturaExitosa, error, { frequency: 300 } );
-                
-        }
-        function lecturaExitosa(heading) {
-           // alert('lectura exitosa');
-           //alert(" Orientacion: " + orientacion.magneticHeading + " Grados");
-            //document.getElementById("miorientacion").innerHTML = " Orientacion: " + orientacion.magneticHeading + " Grados"
-            rotateCompass(heading.magneticHeading);
-        }
-        
-        function error(){
-            alert("No es posible leer la brujula");
-        }
-        
-        function detenerLectura(){
-            
-            navigator.compass.clearWatch(lectura);
-            lectura = null;
-        }
-        
-    function rotateCompass(heading){
-        //console.log("lastReading: " + lastReading);
-        var numberToTravelTo = heading;
-        var delta = Math.abs(lastReading - heading);
-       // console.log("numberToTravelTo: " + numberToTravelTo);
-        //console.log("delta: " + delta);
-
-        if (delta > 180){
-            numberToTravelTo = numberToTravelTo - 360;
-             // console.log("new numberToTravelTo: " + numberToTravelTo);
-
-        }
-
-        var compass =  document.querySelector('#compass');
-        compass.style.webkitTransform = "rotate(" + flipSign(numberToTravelTo) + "deg)";
-        lastReading = numberToTravelTo;
-    }
-
-    function flipSign(number){
-        return number * -1;
-    }    
-                 
-                document.addEventListener("deviceready", onDeviceReady, false);
-                function onDeviceReady() {
-                   // Register the event listener
-                   document.addEventListener("offline", isOffline(), false);
-                   document.addEventListener("online", isOnline(), false);
- 
-
-                   //navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS);
-                    //buscardatosHistoricos();
-                  }
-                   // Handle the online event
-                   //
                function isOffline() {
                      //  alert ('Su dispositivo móvil esta fuera de línea');
                        document.getElementById('net').className = 'estado no';
@@ -92,19 +25,10 @@
                        document.getElementById('net').className = 'estado ok';
                        var options = {maximumAge: 3000, timeout: 10000, enableHighAccuracy:true};
                        navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS, options);
-            
-                       
+                       navigator.accelerometer.getCurrentAcceleration(onSuccessAcelerometro, onErrorAcelerometro);
                       // buscardatosHistoricos();
                    }
-               function resultado(){
-                   document.getElementById('resul').innerHTML = document.getElementById('esta').selectedIndex;
-               }    
-               
-                   // Start watching the compass
-    //
- 
-   
-   
+        
         </script>       
         <script>
               function seleccion(){

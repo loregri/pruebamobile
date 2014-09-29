@@ -144,5 +144,14 @@ function ordenGPS(position){
                    var myselect = $("#select-choice-a");
                     myselect.selectmenu('refresh');
     }
-    
- 
+    //you now have access to an acceleration object
+//which contains x, y, z, and timestamp data
+function onSuccessAcelerometro(acceleration) {
+alert('Acceleration X: ' + acceleration.x + '\n' +
+'Acceleration Y: ' + acceleration.y + '\n' +
+'Aceleration Z: ' + acceleration.z + '\n' +
+'Timestamp: ' + acceleration.timestamp + '\n');
+};
+function onErrorAcelerometro() {
+alert('Lo siento! Error!');
+};
